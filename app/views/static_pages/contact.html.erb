@@ -1,0 +1,59 @@
+<% provide(:title, 'contact') %>
+<% provide(:og_title, 'Contact The Cultural Spotter') %>
+<% provide(:url, request.original_url) %>
+<% provide(:og_image, "https://s3.amazonaws.com/gtku/assets/about.png" %>
+<% content_for :description do %>
+<%= description('We would love to hear your feedback; tell us what you think of our site and our articles! In case you have got a creative idea on what to write about, let us know!') %>
+<% end %>
+<br />
+<div class="row">
+<div class="col-lg-1 col-md-1">
+</div>
+<div class="col-lg-10 col-md-10">
+<div class="well bs-component">
+<h1>Contact</h1>
+<%= form_tag send_mail_path, :onsubmit => 'return validateForm();', :class => 'form-horizontal',
+                          :name => 'myForm' do -%>
+  <fieldset>
+  <div class="form-group">
+  	
+  <%= label_tag(:email, "Email", class: "col-lg-2 control-label") %>
+  <div class="col-lg-10">
+  <%= text_field_tag(:email, nil, placeholder: 'Your contact email', class: "form-control") %>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag(:question, "Question", class: 'col-lg-2 control-label')  %>
+    <div class="col-lg-10">
+      <%= text_area_tag(:question, nil, class: 'form-control', placeholder: 'Ask Us Anything. We will read and respond to your questions.', rows: "6") %>
+    </div>
+  </div>
+  <div class="form-group">
+  	<div class="col-lg-10 col-lg-offset-2">
+    <%= submit_tag("Send", class: "btn btn-primary")%>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
+<div class="col-lg-1 col-md-1">
+</div>  
+</div> 
+<script>
+	function validateForm()
+{
+var x=document.forms["myForm"]["email"].value;
+var atpos=x.indexOf("@");
+var dotpos=x.lastIndexOf(".");
+var y=document.forms["myForm"]["question"].value;
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  {
+  alert("Invalid email address!");
+  return false;
+  }
+else if (y == ""){
+  alert("Field Question must be populated!");
+  return false;
+}  
+}
+</script> 

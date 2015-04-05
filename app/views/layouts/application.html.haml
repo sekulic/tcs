@@ -1,0 +1,50 @@
+%html(lang="en")
+  %head
+    %link{:href => "https://s3.amazonaws.com/gtku/assets/favicon.png", :rel => "icon", :type => "image/png"}
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title=full_title(yield(:title))
+    %meta{:content => content_for?(:description) ? yield(:description) : "The Cultural Spotter - outstanding understanding", :name => "description"}
+    %meta{:name=> "viewport", :content=> "width=device-width, initial-scale=1, maximum-scale=1"}
+    %meta{:content => content_for?(:og_title) ? yield(:og_title) : "The Cultural Spotter - outstanding understanding", :property => "og:title"}/
+    %meta{:content => content_for?(:url) ? yield(:url) : "http://www.theculturalspotter.eu", :property => "og:url"}/
+    %meta{:content => content_for?(:description) ? yield(:description) : "The Cultural Spotter - outstanding understanding", :property => "og:description"}/
+    %meta{:content => "The Cultural Spotter", :property => "og:site_name"}/
+    %meta{:content => content_for?(:og_image) ? yield(:og_image) : "https://s3.amazonaws.com/gtku/assets/about.png", :property => "og:image"}/
+    = stylesheet_link_tag    'journal', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'journal', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %noscript    
+      %iframe{:height => "0", :width => "0", :style => "display:none;visibility:hidden", :src => "//www.googletagmanager.com/ns.html?id=GTM-WHN9PF"}
+    %script
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WHN9PF');
+    #fb-root
+    %script
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));    
+      
+    = render 'layouts/navbar'
+    -if alert       
+      .row
+        .col-lg-12
+          .alert alert-dismissable.alert-danger
+          %center
+            %h4=alert
+       
+    -elsif notice
+      .row
+        .col-lg-12
+          .alert.alert-dismissable.alert-success
+            %center
+              %h4= notice
+    = yield
+    = render 'layouts/footer'

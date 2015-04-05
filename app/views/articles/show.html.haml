@@ -1,0 +1,141 @@
+-provide(:url, request.original_url)
+-provide(:og_title, @article.title)
+-provide(:og_image, "https://s3.amazonaws.com/gtku/assets/about.png")
+-provide(:title, @article.title)
+-content_for :description do
+  = description(@article.description)
+.row
+  .col-lg-12
+    %img{ :src => "https://s3.amazonaws.com/gtku/assets/frontpage.png", :width => "100%", :class => 'img-responsive' } 
+.row
+  .col-lg-1.col-md-1
+  .col-lg-7.col-md-7
+    %h2.text-danger=@article.title
+    .row
+      .col-lg-4.col-md-4
+        %span=@article.created_at.to_date.to_s(:long)
+      .col-lg-4.col-md-4
+        %span.text-danger
+          %b
+            = succeed @article.country.name do
+              %b.text-normal="Country/Region:&nbsp;&nbsp;".html_safe           
+      .col-lg-4.col-md-4
+        .rgh
+          %span.text-warning
+            %b
+              = succeed @article.category.name do
+                %b.text-normal="Category:&nbsp;&nbsp;".html_safe 
+    %br              
+    .jus
+      %strong.blc=simple_format(@article.text1)
+    -unless @article.photo1.blank?
+      .row
+        .col-lg-10
+          .imageHolder
+            = image_tag @article.photo1(:medium),:width => "100%", :class => 'img-responsive'
+              -unless @article.p1desescription.blank?
+              .imageHolder.caption
+                %white=@article.p1desescription
+          .line-br        
+        .col-lg-2       
+    .jus
+      %strong.blc=simple_format(@article.text2)
+    -unless @article.photo2.blank?
+      .row
+        .col-lg-10
+          .imageHolder
+            = image_tag @article.photo2(:medium),:width => "100%", :class => 'img-responsive'
+              -unless @article.p2description.blank?
+              .imageHolder.caption
+                %white=@article.p2description
+          .line-br
+        .col-lg-2  
+    .jus
+      %strong.blc=simple_format(@article.text3)
+    -unless @article.photo3.blank?
+      .row
+        .col-lg-10
+          .imageHolder
+            = image_tag @article.photo3(:medium),:width => "100%", :class => 'img-responsive'
+              -unless @article.p3description.blank?
+              .imageHolder.caption
+                %white=@article.p3description
+          .line-br
+        .col-lg-2               
+    .jus
+      %strong.blc=simple_format(@article.text4)
+    -unless @article.photo4.blank?
+      .row
+        .col-lg-10
+          .imageHolder
+            = image_tag @article.photo4(:medium),:width => "100%", :class => 'img-responsive'
+              -unless @article.p4description.blank?
+              .imageHolder.caption
+                %white=@article.p4description
+          .line-br
+        .col-lg-2  
+    .jus
+      %strong.blc=simple_format(@article.text5)
+    -unless @article.photo5.blank?
+      .row
+        .col-lg-10
+          .imageHolder
+            = image_tag @article.photo5(:medium),:width => "100%", :class => 'img-responsive'
+              -unless @article.p5description.blank?
+              .imageHolder.caption
+                %white=@article.p5description
+          .line-br
+        .col-lg-2  
+    .jus
+      %strong.blc=simple_format(@article.text6)
+    -unless @article.photo6.blank?
+      .row
+        .col-lg-10
+          .imageHolder
+            = image_tag @article.photo6(:medium),:width => "100%", :class => 'img-responsive'
+              -unless @article.p6description.blank?
+              .imageHolder.caption
+                %white=@article.p6description
+          .line-br
+        .col-lg-2                                          
+    %br    
+      =render_shareable :buttons=> [ 'facebook','twitter', 'google_plus']
+    -if current_user.try(:admin?)
+      .alert
+        =link_to 'Edit Article', edit_article_path(@article), :class => 'btn btn-primary'
+        =link_to 'Back to Articles', root_path, :class => 'btn btn-danger'
+        =link_to t('.destroy', :default => t("helpers.links.destroy")),
+                article_path(@article),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger'
+    .fb-comments{:data => {:href=>"https://www.theculturalspotter.eu/articles/#{@article.url}", :numposts=>"5", :colorscheme=>"light"}}        
+  .col-lg-4.col-md-4
+    .jumbotron.jumb
+      .row
+        .col-md-3.col-xs-3
+        .col-md-9.col-xs-9          
+          %p.text-danger='About the Author'
+      .row
+        .col-lg-12
+        .col-lg-12
+          = image_tag @article.author.photo(:thumb), size: "150x150", :class => 'img-circle'
+        .col-lg-12
+        -if @article.author.link_profile.blank?
+          %h4=@article.author.fullname
+          .jus
+            %strong=simple_format(@article.author.about)          
+        -else
+          %h4
+            =link_to @article.author.fullname , @article.author.link_profile, :target => "_blank" 
+          .jus
+            %strong=@article.author.about
+    .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
+    -unless  @authors_articles.count == 1
+      .list-group
+        .list-group-item.lgi-heding
+          %b='ARTICLES BY THE SAME AUTHOR'
+        -@authors_articles.each do |authors_article|
+          -unless authors_article.id == @article.id
+            =link_to authors_article.title , article_path(authors_article), :class => "list-group-item" 
+-# = render 'shared/fbpopup'            

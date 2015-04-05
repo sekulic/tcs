@@ -1,0 +1,25 @@
+= form_for author do |f|
+  - if author.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(author.errors.count, "error")} prohibited this author from being saved:"
+      %ul
+        - author.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: 'form-control'
+  .field
+    = f.label :last_name
+    = f.text_field :last_name, class: 'form-control'
+  .field
+    = f.label :about
+    = f.text_area :about, class: 'form-control'
+  .field
+    = f.label :photo  
+    = f.file_field :photo, class: 'form-control'
+  .field
+    = f.label :link_profile
+    = f.text_area :link_profile, class: 'form-control'
+  = f.submit 'Save', :class => "btn btn-info"
+%br

@@ -1,0 +1,232 @@
+@import "journal/base";
+
+// Journal 3.3.2
+// Bootswatch
+// -----------------------------------------------------
+
+@import url("//fonts.googleapis.com/css?family=News+Cycle:400,700");
+
+// Navbar =====================================================================
+body { padding-top: 59px; }
+.navbar-brand {
+  padding-top: 2px !important;
+}
+.no-underline a:hover, a:visited, a:link, a:active {
+  text-decoration: none !important;
+}
+.blc {
+  color: black !important;
+}
+.lgi-heding {
+  background: gray;
+  color: white !important;
+}
+.trPic{
+        position: relative; 
+}
+.trPic .redO{ 
+        position: absolute;  
+        bottom: 0px; 
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        color: white;
+        display: inline-block;
+        padding: 0 0 0 0 !important;
+        background:black; 
+        opacity:0; } 
+.trPic:hover .redO { opacity:0.6; }
+.panel-body {
+  padding: 0 0 0 0 !important;
+}
+.panel {
+  margin-bottom: 1px !important;
+}
+.linetext {
+    text-align: center;
+}
+.inl {
+    display: inline;    
+}
+.linetext h1 {
+    display: inline-block;    
+}
+.home-hgh {
+  height: 200px !important; 
+}
+.tar{}
+.linetext h1:before,
+.linetext h1:after {
+    border-top: 1px solid black;
+    display: block;
+    height: 1px;
+    content: " ";
+    width: 25%;
+    position: absolute;
+    left: 0;
+    top: 1.2em;
+}
+.linetext h1:after {
+   right: 0;  
+   left: auto; 
+}
+.jus {
+text-align: justify;  
+}
+.rgh {
+text-align: right !important;  
+}
+.text-normal {
+  color: @gray-light !important;
+}
+.home-pd {
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+}
+.add-google {
+  height: 60px;  
+}
+.index-rgh {
+  height: 200px;
+}
+.search-holder {
+    border: 2px solid #a1a1a1;
+    margin-top: 5px; 
+    margin-bottom: 4px;
+    background: #dddddd;;
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
+}
+.line-br {
+    height: 10px;
+    width: 100%;
+}
+.imageHolder { position: relative;
+}
+
+.imageHolder .caption { 
+               position: absolute;  
+               bottom: 0px; 
+               left: 0px;
+               background: black;
+               padding-left: 5px; 
+               padding-right: 5px;
+               text-align:left; 
+               font-weight:bold; opacity:0.7;
+                }
+.navbar {
+  margin-bottom: 1px;
+  font-size: 18px;
+  font-family: @font-family-sans-serif;
+  font-weight: @headings-font-weight;
+
+  &-default {
+
+    .badge {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+
+  &-inverse {
+
+    .badge {
+      background-color: #fff;
+      color: @navbar-inverse-bg;
+    }
+  }
+}
+
+.navbar-brand {
+  font-size: inherit;
+  font-weight: @headings-font-weight;
+  text-transform: uppercase;
+}
+
+// Buttons ====================================================================
+
+// Typography =================================================================
+
+// Tables =====================================================================
+
+// Forms ======================================================================
+
+.has-warning {
+  .help-block,
+  .control-label,
+  .form-control-feedback {
+    color: @brand-danger;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-danger;
+  }
+}
+
+.has-error {
+  .help-block,
+  .control-label,
+  .form-control-feedback {
+    color: @brand-primary;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-primary;
+  }
+}
+
+.has-success {
+  .help-block,
+  .control-label,
+  .form-control-feedback {
+    color: @brand-success;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-success;
+  }
+}
+
+// Navs =======================================================================
+
+// Indicators =================================================================
+
+.badge {
+  padding-bottom: 4px;
+  vertical-align: 3px;
+  font-size: 10px;
+}
+
+// Progress bars ==============================================================
+
+// Containers =================================================================
+
+.jumbotron {
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: @font-family-sans-serif;
+    font-weight: @headings-font-weight;
+    color: #000;
+  }
+}
+
+.panel {
+
+  &-primary,
+  &-success,
+  &-warning,
+  &-danger,
+  &-info {
+    .panel-title {
+      color: #fff;
+    }
+  }
+
+
+}
+.jumb {
+  padding-top: 10px !important;
+}

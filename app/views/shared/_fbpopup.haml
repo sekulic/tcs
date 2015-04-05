@@ -1,0 +1,16 @@
+%div
+  .modal
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Suport The Cultural Spotter - Give us a LIKE
+        .modal-body
+          %center
+            .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
+- if first_time_visiting?
+  %script
+    setTimeout(function(){
+    $(".modal").modal();
+    },8000)
+  - session[:first_time] = 1  

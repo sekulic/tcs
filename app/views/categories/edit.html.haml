@@ -1,0 +1,12 @@
+.row
+  .col-lg-3
+  .col-lg-6
+    %h1 Editing category
+    
+    = render 'form'
+    
+    = link_to 'Show', category, :class => "btn btn-primary"
+    \|
+    = link_to 'Back', categories_path, :class => "btn btn-danger"
+  .col-lg-3
+   

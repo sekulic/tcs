@@ -1,0 +1,54 @@
+-provide(:title, 'outstanding understanding')
+-provide(:og_title, 'The Cultural Spotter - outstanding understanding')
+-provide(:og_image, "https://s3.amazonaws.com/gtku/assets/about.png")
+-content_for :description do
+  = description('The Cultural Spotter is an online magazine that aims to show how colorful the world is by describing different lifestyles, culinary and cultural traditions and different points of view through a wide range of articles.')
+.row.home-pd
+  .col-lg-9.col-md-9
+    %img{ :src => "https://s3.amazonaws.com/gtku/assets/frontpage.png", :width => "100%", :class => 'img-responsive' }
+    %h2=@note
+    -idx = 0
+    -@articles.each_slice(6) do |articles_by6|
+      .row    
+        -articles_by6.each_slice(2) do |articles_by2|  
+          .col-md-4.col-xs-12
+            -articles_by2.each do |article|
+              -idx = idx + 1
+              -if(idx % 6 == 0) 
+                -idx = 1 
+              -if(idx % 5 == 0)
+                -pnl = 'panel-primary'                           
+              -elsif(idx % 4 == 0)
+                -pnl = 'panel-info'                              
+              -elsif(idx % 3 == 0)
+                -pnl = 'panel-success'                                 
+              -elsif(idx % 2 == 0)
+                -pnl = 'panel-warning'              
+              -elsif (idx % 1 == 0)
+                -pnl = 'panel-danger'            
+              .tar          
+                = link_to "articles/#{article.url}" do
+                  .panel{:class => pnl}     
+                    .panel-heading 
+                      %h3.panel-title.no-underline      
+                        =article.title
+                    .panel-body.trPic
+                      = image_tag article.photo1(:medium),:width => "100%", :class => 'img-responsive'
+                      .redO
+                        %center=article.description
+                .row
+                  .col-md-4.col-xs-4
+                    =article.created_at.to_date.to_s(:medium)
+                  .col-md-4.col-xs-4
+                    %p.text-danger=article.country.name             
+                  .col-md-4.col-xs-4
+                    .rgh
+                      =article.category.name 
+    .row
+      .col-lg-12
+        %center= will_paginate @articles                                     
+  .col-lg-3.col-md-3
+    .search-holder
+      = render 'search_form'
+    .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}   
+-# = render 'shared/fbpopup'     
