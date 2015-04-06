@@ -10,7 +10,8 @@
     %meta{:content => content_for?(:description) ? yield(:description) : "The Cultural Spotter - outstanding understanding", :property => "og:description"}/
     %meta{:content => "The Cultural Spotter", :property => "og:site_name"}/
     %meta{:content => content_for?(:og_image) ? yield(:og_image) : "https://s3.amazonaws.com/gtku/assets/about.png", :property => "og:image"}/
-    %meta{:content => "1415336402105851", :property => "fb:admins"}/
+    %meta{:content => "marta.ritecz,sekulic", :property => "fb:admins"}/
+    <meta property="fb:admins" content="1415336402105851" />
     = stylesheet_link_tag    'journal', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'journal', 'data-turbolinks-track' => true
     = csrf_meta_tags
