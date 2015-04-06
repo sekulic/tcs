@@ -124,14 +124,16 @@
         -if @article.author.link_profile.blank?
           %h4=@article.author.fullname
           .jus
-            %h5.lead
-              =@article.author.about          
+            %h3
+              %small
+                =@article.author.about         
         -else
           %h4
             =link_to @article.author.fullname , @article.author.link_profile, :target => "_blank" 
           .jus
-            %h5.lead
-              =@article.author.about
+            %h3
+              %small
+                =@article.author.about
     .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
     -unless  @authors_articles.count == 1
       .list-group
