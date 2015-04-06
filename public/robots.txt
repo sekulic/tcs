@@ -1,1 +1,1 @@
-Sitemap: http://www.theculturalspoter.eu/sitemap1.xml.gz
+Sitemap: http://www.theculturalspoter.com/sitemap1.xml.gz
