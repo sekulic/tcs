@@ -1,6 +1,6 @@
 -provide(:url, request.original_url)
 -provide(:og_title, @article.title)
--provide(:og_image, "https://s3.amazonaws.com/gtku/assets/about.png")
+-provide(:og_image, URI.join(request.url, @article.photo1(:medium).url))
 -provide(:title, @article.title)
 -content_for :description do
   = description(@article.description)

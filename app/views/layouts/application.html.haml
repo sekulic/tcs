@@ -6,7 +6,7 @@
     %meta{:content => content_for?(:description) ? yield(:description) : "The Cultural Spotter - outstanding understanding", :name => "description"}
     %meta{:name=> "viewport", :content=> "width=device-width, initial-scale=1, maximum-scale=1"}
     %meta{:content => content_for?(:og_title) ? yield(:og_title) : "The Cultural Spotter - outstanding understanding", :property => "og:title"}/
-    %meta{:content => content_for?(:url) ? yield(:url) : "http://www.theculturalspotter.eu", :property => "og:url"}/
+    %meta{:content => content_for?(:url) ? yield(:url) : "https://serene-oasis-6109.herokuapp.com/", :property => "og:url"}/
     %meta{:content => content_for?(:description) ? yield(:description) : "The Cultural Spotter - outstanding understanding", :property => "og:description"}/
     %meta{:content => "The Cultural Spotter", :property => "og:site_name"}/
     %meta{:content => content_for?(:og_image) ? yield(:og_image) : "https://s3.amazonaws.com/gtku/assets/about.png", :property => "og:image"}/
@@ -14,14 +14,6 @@
     = javascript_include_tag 'journal', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %noscript    
-      %iframe{:height => "0", :width => "0", :style => "display:none;visibility:hidden", :src => "//www.googletagmanager.com/ns.html?id=GTM-WHN9PF"}
-    %script
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-WHN9PF');
     #fb-root
     %script
       (function(d, s, id) {
