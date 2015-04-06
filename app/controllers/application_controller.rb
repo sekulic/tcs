@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   private
 
     # Redirect to the appropriate domain i.e. example.com
-    def redirect_to_tcs
-      domain_to_redirect_to = 'www.theculturalspotter.eu'
-      domain_exceptions = ['theculturalspotter.eu', 'www.theculturalspotter.eu']
-      should_redirect = domain_exceptions.exclude? request.host
-      new_url = "http://#{domain_to_redirect_to}#{request.fullpath}"
-      redirect_to new_url, status: :moved_permanently if should_redirect
-    end  
+    #def redirect_to_tcs
+    #  domain_to_redirect_to = 'www.theculturalspotter.com'
+    #  domain_exceptions = ['theculturalspotter.com', 'www.theculturalspotter.com']
+    #  should_redirect = domain_exceptions.exclude? request.host
+    #  new_url = "http://#{domain_to_redirect_to}#{request.fullpath}"
+    #  redirect_to new_url, status: :moved_permanently if should_redirect
+    #end  
 end
