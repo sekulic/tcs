@@ -9,12 +9,12 @@
           %h4.modal-title Suport The Cultural Spotter - Give us a LIKE - Follow Us
         .modal-body
           .row
-            .col-lg-4.col-md-3.col-xs-1
-            .col-lg-4.col-md-6.col-xs-10
+            .col-md-3
+            .col-md-6
               .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
               .twt
                 %a.twitter-follow-button{"data-lang" => "en","data-size" => "large", "data-show-count" => "true", :href => "https://twitter.com/CulturalSpotter"}
-            .col-lg-4.col-md-3.col-xs-1
+            .col-md-3
 - if first_time_visiting?
   %script
     setTimeout(function(){
