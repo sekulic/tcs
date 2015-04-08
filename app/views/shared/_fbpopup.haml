@@ -1,13 +1,20 @@
+:javascript
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
 %div
   .modal
     .modal-dialog
       .modal-content
         .modal-header
           %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-          %h4.modal-title Suport The Cultural Spotter - Give us a LIKE
+          %h4.modal-title Suport The Cultural Spotter - Give us a LIKE - Follow Us
         .modal-body
-          %center
-            .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
+          .row
+            .col-lg-4.col-md-3.col-xs-1
+            .col-lg-4.col-md-6.col-xs-10
+              .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
+              .twt
+                %a.twitter-follow-button{"data-lang" => "en","data-size" => "large", "data-show-count" => "true", :href => "https://twitter.com/CulturalSpotter"}
+            .col-lg-4.col-md-3.col-xs-1
 - if first_time_visiting?
   %script
     setTimeout(function(){

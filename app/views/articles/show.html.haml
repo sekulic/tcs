@@ -1,3 +1,5 @@
+:javascript
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
 -provide(:url, request.original_url)
 -provide(:og_type, "article")
 -provide(:og_title, @article.title)
@@ -136,6 +138,8 @@
               %small.authorabout
                 =@article.author.about
     .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
+    .twt
+      %a.twitter-follow-button{"data-lang" => "en","data-size" => "large", "data-show-count" => "true", :href => "https://twitter.com/CulturalSpotter"}
     -unless  @authors_articles.count == 1
       .list-group
         .list-group-item.lgi-heding
