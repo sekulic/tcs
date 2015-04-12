@@ -140,8 +140,6 @@
     .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
     .twt
       %a.twitter-follow-button{"data-lang" => "en","data-size" => "large", "data-show-count" => "true", :href => "https://twitter.com/CulturalSpotter"}
-    .row.gglad
-      = render 'ga_rights_show' 
     -unless  @authors_articles.count == 1
       .list-group
         .list-group-item.lgi-heding
