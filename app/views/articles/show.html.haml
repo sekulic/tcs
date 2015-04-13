@@ -9,7 +9,7 @@
   = description(@article.description)
 .row
   .col-lg-12
-    %img{ :src => "https://s3.amazonaws.com/gtku/assets/frontpage.png", :width => "100%", :class => 'img-responsive' } 
+    %img{ :src => "https://s3.amazonaws.com/gtku/assets/frontpage.png", :width => "100%", :alt => "The Cultural Spotter Banner", :class => 'img-responsive' } 
 .row
   .col-lg-1.col-md-1
   .col-lg-7.col-md-7
@@ -35,7 +35,7 @@
       .row
         .col-lg-10
           .imageHolder
-            = image_tag @article.photo1(:medium),:width => "100%", :class => 'img-responsive'
+            = image_tag @article.photo1(:medium),:width => "100%", :alt => @article.p1desescription, :class => 'img-responsive'
               -unless @article.p1desescription.blank?
               .imageHolder.caption
                 %white=@article.p1desescription
@@ -47,7 +47,7 @@
       .row
         .col-lg-10
           .imageHolder
-            = image_tag @article.photo2(:medium),:width => "100%", :class => 'img-responsive'
+            = image_tag @article.photo2(:medium),:width => "100%", :alt => @article.p2description, :class => 'img-responsive'
               -unless @article.p2description.blank?
               .imageHolder.caption
                 %white=@article.p2description
@@ -59,7 +59,7 @@
       .row
         .col-lg-10
           .imageHolder
-            = image_tag @article.photo3(:medium),:width => "100%", :class => 'img-responsive'
+            = image_tag @article.photo3(:medium),:width => "100%", :alt => @article.p3description, :class => 'img-responsive'
               -unless @article.p3description.blank?
               .imageHolder.caption
                 %white=@article.p3description
@@ -71,7 +71,7 @@
       .row
         .col-lg-10
           .imageHolder
-            = image_tag @article.photo4(:medium),:width => "100%", :class => 'img-responsive'
+            = image_tag @article.photo4(:medium),:width => "100%", :alt => @article.p4description, :class => 'img-responsive'
               -unless @article.p4description.blank?
               .imageHolder.caption
                 %white=@article.p4description
@@ -83,7 +83,7 @@
       .row
         .col-lg-10
           .imageHolder
-            = image_tag @article.photo5(:medium),:width => "100%", :class => 'img-responsive'
+            = image_tag @article.photo5(:medium),:width => "100%", :alt => @article.p5description, :class => 'img-responsive'
               -unless @article.p5description.blank?
               .imageHolder.caption
                 %white=@article.p5description
@@ -95,7 +95,7 @@
       .row
         .col-lg-10
           .imageHolder
-            = image_tag @article.photo6(:medium),:width => "100%", :class => 'img-responsive'
+            = image_tag @article.photo6(:medium),:width => "100%", :alt => @article.p6description, :class => 'img-responsive'
               -unless @article.p6description.blank?
               .imageHolder.caption
                 %white=@article.p6description
@@ -122,7 +122,7 @@
       .row
         .col-lg-12
         .col-lg-12
-          = image_tag @article.author.photo(:thumb), size: "150x150", :class => 'img-circle'
+          = image_tag @article.author.photo(:thumb), size: "150x150", :alt => @article.author.fullname, :class => 'img-circle'
         .col-lg-12
         -if @article.author.link_profile.blank?
           %h4=@article.author.fullname
@@ -136,10 +136,7 @@
           .jus
             %h3
               %small.authorabout
-                =@article.author.about
-    .row
-      .col-lg-12.gglad 
-        = render 'ga_rights_show'                      
+                =@article.author.about                      
     .fb-page{:data => {:href=>"https://www.facebook.com/theculturalspotter", "hide-cover"=>"false", "show-facepile"=>"true", "show-posts"=>"false"}}  
     .twt
       %a.twitter-follow-button{"data-lang" => "en","data-size" => "large", "data-show-count" => "true", :href => "https://twitter.com/CulturalSpotter"}

@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @authors_articles=Article.where(author_id: @article.author_id).order(:created_at).limit(4)
+    @authors_articles=Article.where(author_id: @article.author_id).order(:created_at).limit(6)
   end
 
   def new

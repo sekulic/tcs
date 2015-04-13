@@ -7,7 +7,7 @@
   = description('The Cultural Spotter is an online magazine that aims to show how colorful the world is by describing different lifestyles, culinary and cultural traditions and different points of view through a wide range of articles.')
 .row.home-pd
   .col-lg-9.col-md-9
-    %img{ :src => "https://s3.amazonaws.com/gtku/assets/frontpage.png", :width => "100%", :class => 'img-responsive' }
+    %img{ :src => "https://s3.amazonaws.com/gtku/assets/frontpage.png", :width => "100%", :alt => "The Cultural Spotter Banner", :class => 'img-responsive' }
     %h2=@note
     -idx = 0
     -@articles.each_slice(6) do |articles_by6|
@@ -35,7 +35,7 @@
                       %h3.panel-title.no-underline      
                         =article.title
                     .panel-body.trPic
-                      = image_tag article.photo1(:medium),:width => "100%", :class => 'img-responsive'
+                      = image_tag article.photo1(:medium),:width => "100%", :alt => article.p1desescription, :class => 'img-responsive'
                       .redO
                         %center=article.description
                 .row
