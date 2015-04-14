@@ -122,9 +122,9 @@
       .row
         .col-lg-12
         .col-lg-12
-          = image_tag @article.author.photo(:thumb), size: "150x150", :alt => @article.author.fullname, :class => 'img-circle'
+          = image_tag @article.author.photo(:thumb), size: "150x150", :alt => "#{@article.author.first_name} #{@article.author.last_name}", :class => 'img-circle'
         .col-lg-12
-        -if @article.author.link_profile.blank?
+        -if @article.author.link_profile.blank?  
           %h4=@article.author.fullname
           .jus
             %h3
