@@ -29,8 +29,8 @@
               = succeed @article.category.name do
                 %b.text-normal="Category:&nbsp;&nbsp;".html_safe 
     %br              
-    .jus
-      %strong.blc=simple_format(@article.text1)
+    .blc
+      =simple_format(@article.text1)
     -unless @article.photo1.blank?
       .row
         .col-lg-10
@@ -41,8 +41,8 @@
                 %white=@article.p1desescription
           .line-br        
         .col-lg-2       
-    .jus
-      %strong.blc=simple_format(@article.text2)
+    .blc
+      =simple_format(@article.text2)
     -unless @article.photo2.blank?
       .row
         .col-lg-10
@@ -53,8 +53,8 @@
                 %white=@article.p2description
           .line-br
         .col-lg-2  
-    .jus
-      %strong.blc=simple_format(@article.text3)
+    .blc
+      =simple_format(@article.text3)
     -unless @article.photo3.blank?
       .row
         .col-lg-10
@@ -65,8 +65,8 @@
                 %white=@article.p3description
           .line-br
         .col-lg-2               
-    .jus
-      %strong.blc=simple_format(@article.text4)
+    .blc
+      =simple_format(@article.text4)
     -unless @article.photo4.blank?
       .row
         .col-lg-10
@@ -77,8 +77,8 @@
                 %white=@article.p4description
           .line-br
         .col-lg-2  
-    .jus
-      %strong.blc=simple_format(@article.text5)
+    .blc
+      =simple_format(@article.text5)
     -unless @article.photo5.blank?
       .row
         .col-lg-10
@@ -89,8 +89,8 @@
                 %white=@article.p5description
           .line-br
         .col-lg-2  
-    .jus
-      %strong.blc=simple_format(@article.text6)
+    .blc
+      =simple_format(@article.text6)
     -unless @article.photo6.blank?
       .row
         .col-lg-10
