@@ -35,12 +35,12 @@ class ArticlesController < ApplicationController
         @note = ""
       end
     end
-    @slider_articles=Article.where(slider: true).order(:updated_at).limit(4)
-    @did_articles=Article.where(category_id: 3).order(:updated_at).limit(5)
+    @slider_articles=Article.where(slider: true).order(:updated_at).reverse_order.limit(4)
+    @did_articles=Article.where(category_id: 1).order(:updated_at).reverse_order.limit(4)
   end
 
   def show
-    @authors_articles=Article.where(author_id: @article.author_id).order(:created_at).limit(6)
+    @authors_articles=Article.where(author_id: @article.author_id).order(:created_at).reverse_order.limit(6)
   end
 
   def new
