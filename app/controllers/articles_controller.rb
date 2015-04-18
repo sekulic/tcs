@@ -27,14 +27,16 @@ class ArticlesController < ApplicationController
         @category = Category.find(params[:category_id])
         @note = ""
         if @articles.empty?
-          @articles = Article.all.paginate(page: params[:page], per_page: 6).order('created_at DESC')
+          @artcles = Article.all.paginate(page: params[:page], per_page: 6).order('created_at DESC')
           @note = "There are no articles for this category, yet. Consider writing one."
         end        
       else
-        @articles =Article.paginate(page: params[:page], per_page: 6).order('created_at DESC')
+        @articles =Article.all.paginate(page: params[:page], per_page: 6).order('created_at DESC')
         @note = ""
       end
     end
+    @slider_articles=Article.where(slider: true).order(:updated_at).limit(4)
+    @did_articles=Article.where(category_id: 3).order(:updated_at).limit(5)
   end
 
   def show
@@ -77,6 +79,6 @@ class ArticlesController < ApplicationController
     end  
   
     def article_params
-      params.require(:article).permit(:title, :description, :text1, :text2, :text3, :text4, :text5, :text6, :p1desescription, :p2description, :p3description, :p4description, :p5description, :p6description, :title, :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :country_id, :category_id, :author_id)
+      params.require(:article).permit(:title, :description, :text1, :text2, :text3, :text4, :text5, :text6, :p1desescription, :p2description, :p3description, :p4description, :p5description, :p6description, :title, :photo1, :photo2, :photo3, :photo4, :photo5, :photo6, :country_id, :category_id, :author_id, :slider)
     end   
 end

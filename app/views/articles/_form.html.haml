@@ -15,6 +15,12 @@
     .col-lg-10
       = f.text_field :title, class: 'form-control'
   .form-group
+    .col-lg-12
+      .checkbox
+        %label
+          = f.check_box :slider, class: 'form-control'
+          ="Slider"      
+  .form-group
     = f.label 'Category', :class => 'col-lg-2 control-label'
     .col-lg-10
       = f.select :category_id, Category.all.map{|u| [ u.name, u.id ] } , {}, :class => 'form-control'       

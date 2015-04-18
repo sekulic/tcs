@@ -8,6 +8,12 @@
 .row.home-pd
   .col-lg-9.col-md-9
     %img{ :src => "https://s3.amazonaws.com/gtku/assets/frontpage.png", :width => "100%", :alt => "The Cultural Spotter Banner", :class => 'img-responsive' }
+    - if request.env['ORIGINAL_FULLPATH'] == "/"
+      .row
+        .col-lg-8.col-md-8
+          = render 'slider'
+        .col-lg-4.col-md-4
+          = render 'diduknow'
     %h2=@note
     -idx = 0
     -@articles.each_slice(6) do |articles_by6|
