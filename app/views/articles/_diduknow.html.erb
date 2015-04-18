@@ -3,9 +3,11 @@
   </li>
 <div class="">    
 <ul class="list-group lgdid">
-<% @did_articles.each do |article| %>	
-  <li class="list-group-item"
-  <%= link_to article.title, "articles/#{article.url}"  %>
+<% @did_articles.each do |article| %>
+  <li class="list-group-item">
+  <%= link_to "articles/#{article.url}" do %>	
+  <%= article.title %>
+  <%end%>
   </li>
 <% end %>
 </ul>

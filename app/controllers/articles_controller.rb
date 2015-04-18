@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
       end
     end
     @slider_articles=Article.where(slider: true).order(:updated_at).reverse_order.limit(4)
-    @did_articles=Article.where(category_id: 1).order(:updated_at).reverse_order.limit(4)
+    @did_articles=Article.where(category_id: 3).order(:updated_at).reverse_order.limit(3)
   end
 
   def show
