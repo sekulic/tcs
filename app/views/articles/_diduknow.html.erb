@@ -1,10 +1,10 @@
   <li class="list-group-item" id="header-of-table-home">
     <h3 class="text-primary">Did You Know?</h3>
   </li>
-<div class="">    
+<div id="demo" class="scroll-text scroll-container">    
 <ul class="list-group lgdid">
 <% @did_articles.each do |article| %>
-  <li class="list-group-item">
+  <li class="list-group-item" id="lidid">
   <%= link_to "articles/#{article.url}" do %>	
   <%= article.title %>
   <%end%>
@@ -12,3 +12,9 @@
 <% end %>
 </ul>
 </div>
+<script>
+  var sliderhgh = $('.sld').height();
+  var headhgh = $('#header-of-table-home').height();
+  var scrollrhgh = sliderhgh - headhgh
+  $('.scroll-container').css({'height':scrollrhgh+'px'});
+</script>
