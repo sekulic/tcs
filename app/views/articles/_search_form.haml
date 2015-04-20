@@ -2,7 +2,8 @@
   %h5.text-danger= 'COUNTRIES'
   .form-group
     .col-lg-12
-      = select_tag :country_id,  options_for_select(Country.all.map{|u| [ u.name, u.id ] }), prompt: "Select a Country", :class => 'form-control'
+      -@countries_s = Country.order('name ASC')
+      = select_tag :country_id,  options_for_select(@countries_s.map{|u| [ u.name, u.id ] }), prompt: "Select a Country", :class => 'form-control'
   .form-group
     .col-lg-12
       = submit_tag "SEARCH", :class => 'btn btn-sm btn-primary'
