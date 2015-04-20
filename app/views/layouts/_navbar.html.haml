@@ -9,11 +9,14 @@
         %span.icon-bar
     .navbar-collapse.collapse{:id => 'navbar-main'}
       %ul.nav.navbar-nav
-        %li= link_to "Home", root_path, class: 'bold-text-navbar'
-        %li= link_to "About Us", about_path, class: 'bold-text-navbar'
+        %li{ :class => is_active_page_home? }
+          = link_to "Home", root_path, class: 'bold-text-navbar'
+        %li{ :class => is_active_page?(about_path) }
+          = link_to "About Us", about_path, class: 'bold-text-navbar'
         -categories = Category.all
         -categories.each do |category|
-          %li= link_to category.name, root_path(:category_id => category.id), class: 'bold-text-navbar'
+          %li{ :class => active_page_category(category.id) }
+            = link_to category.name, root_path(:category_id => category.id), class: 'bold-text-navbar'
       %ul.nav.navbar-nav.navbar-right
         -if current_user.try(:admin?)
           %li= link_to "New Article", new_article_path, class: 'bold-text-navbar'
@@ -21,4 +24,5 @@
           %li= link_to "Authors", authors_path, class: 'bold-text-navbar'
           %li= link_to "Logout", destroy_user_session_path, :method => :delete, class: 'bold-text-navbar'    
         -else
-          %li= link_to "Contact", contact_path, class: 'bold-text-navbar'
+          %li{ :class => is_active_page?(contact_path) }
+            = link_to "Contact", contact_path, class: 'bold-text-navbar'
